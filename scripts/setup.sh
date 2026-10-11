@@ -59,5 +59,12 @@ say "Config written to $CONFIG"
 printf '\n    Password: %s\n\n' "$PW"
 
 say "Done. Next:"
-echo "    ./scripts/start.sh"
-echo "    then in Cloud Shell click 'Web Preview' -> 'Change port' -> ${PORT}"
+echo "    bash scripts/start.sh"
+if [ -d /data/data/com.termux ]; then
+  echo "    then open http://localhost:${PORT} in your phone's browser"
+  warn "Termux/Android: code-server's generic build is not its supported Termux"
+  warn "install, and server-side extensions are refused on Android. See docs/termux.md"
+  warn "(the proot-distro Ubuntu route is the reliable one)."
+else
+  echo "    then in Cloud Shell click 'Web Preview' -> 'Change port' -> ${PORT}"
+fi

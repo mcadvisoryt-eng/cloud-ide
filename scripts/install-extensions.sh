@@ -12,6 +12,14 @@ export PATH="$HOME/.local/bin:$PATH"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LIST="${CLOUDIDE_EXTENSIONS:-$ROOT/config/extensions.txt}"
 
+# On Termux/Android, code-server reports process.platform === "android" and
+# refuses to install server-side extensions. Preloading a tiny shim that makes
+# it report "linux" lets them install (see docs/termux.md).
+if [ -d /data/data/com.termux ] && [ -f "$ROOT/scripts/android-as-linux.js" ]; then
+  export NODE_OPTIONS="--require $ROOT/scripts/android-as-linux.js ${NODE_OPTIONS:-}"
+  echo "install-extensions: Termux detected - loading android-as-linux shim"
+fi
+
 if ! command -v code-server >/dev/null 2>&1; then
   echo "install-extensions: code-server is not installed yet." >&2
   exit 1

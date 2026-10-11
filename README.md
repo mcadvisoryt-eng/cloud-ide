@@ -128,6 +128,13 @@ Two layers:
 See **[`docs/full-desktop.md`](docs/full-desktop.md)** — an XFCE + noVNC desktop, or the
 LinuxServer.io *webtop* container. This needs a host with root (a free no-card VPS, or Oracle later).
 
+## On a phone (Termux / Android)
+
+code-server does not fully support Android, so it refuses server-side extensions there — that is why
+every extension fails if you run it in plain Termux. The reliable fix is to run it inside
+`proot-distro` Ubuntu on the phone, where extensions work normally; a bundled platform shim is also
+included as a fallback. Full guide: **[`docs/termux.md`](docs/termux.md)**.
+
 ## Why not GitHub Actions?
 
 The popular "Windows/Android desktop on GitHub Actions" projects run on **ephemeral** runners with a
@@ -153,9 +160,11 @@ scripts/
   backup.sh               snapshot VS Code data + extension list
   restore.sh              restore the newest snapshot
   enable-autostart.sh     wire bootstrap into ~/.bashrc (once per boot)
+  android-as-linux.js     platform shim so Termux/Android installs extensions
   start.sh / stop.sh      run / stop code-server
 docs/
   cloud-shell.md          the no-card path, step by step (+ autostart, stable URL)
+  termux.md               running it on a phone (Termux/Android)
   full-desktop.md         a full Linux desktop in the browser
   alternatives.md         free no-card VPS options, and the trade-offs
 ```

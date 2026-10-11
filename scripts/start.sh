@@ -24,7 +24,12 @@ else
   echo "Log: $LOG"
 fi
 
-cat <<EOF
+if [ -d /data/data/com.termux ]; then
+  echo
+  echo "Open it: http://localhost:${PORT} in your phone's browser"
+  echo "  (extensions need a workaround on Termux - see docs/termux.md)"
+else
+  cat <<EOF
 
 Open it:
   * Google Cloud Shell:  click "Web Preview" -> "Change port" -> ${PORT}
@@ -32,3 +37,4 @@ Open it:
 
 The password is in ~/.config/code-server/config.yaml
 EOF
+fi
