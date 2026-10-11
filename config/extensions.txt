@@ -1,0 +1,47 @@
+# Extensions installed automatically by scripts/install-extensions.sh
+#
+# One ID per line, "publisher.name". Lines starting with # are ignored.
+# code-server installs from Open VSX (https://open-vsx.org), which is the
+# open registry — most popular extensions are there, but a few Microsoft-
+# exclusive ones (Pylance, C# Dev Kit) are not; see the commented block at
+# the end. Any ID that fails is reported and skipped, so a stale line here
+# will never break the boot.
+
+# --- Editing quality of life ---
+esbenp.prettier-vscode
+dbaeumer.vscode-eslint
+EditorConfig.EditorConfig
+streetsidesoftware.code-spell-checker
+usernamehw.errorlens
+eamodio.gitlens
+christian-kohler.path-intellisense
+oderwat.indent-rainbow
+formulahendry.auto-rename-tag
+
+# --- Look & feel ---
+PKief.material-icon-theme
+dracula-theme.theme-dracula
+
+# --- Languages & frameworks ---
+ms-python.python
+ms-toolsai.jupyter
+golang.go
+rust-lang.rust-analyzer
+redhat.java
+redhat.vscode-yaml
+bmewburn.vscode-intelephense-client
+shopify.ruby-lsp
+tamasfe.even-better-toml
+timonwong.shellcheck
+yzhang.markdown-all-in-one
+
+# --- Web & containers ---
+ritwickdey.LiveServer
+zignd.html-css-class-completion
+ms-azuretools.vscode-docker
+
+# --- Not on Open VSX (Microsoft-exclusive). Leave commented unless you
+#     side-load the .vsix yourself (see docs/cloud-shell.md).
+# ms-python.vscode-pylance
+# ms-dotnettools.csharp
+# ms-vscode.cpptools

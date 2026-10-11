@@ -1,0 +1,6 @@
+# Local runtime artefacts
+*.log
+.code-server.pid
+
+# Never commit a generated code-server config (it holds your password)
+config.yaml

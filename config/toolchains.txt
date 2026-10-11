@@ -1,0 +1,13 @@
+# Optional extra language toolchains, installed into $HOME by
+# scripts/install-toolchains.sh (which uses mise).
+#
+# Google Cloud Shell already ships Python, Node, Go, Java, gcloud, Docker and
+# more, so you usually do NOT need this there. It is mainly for a bare host
+# (e.g. a free VPS), or to pin specific versions. Uncomment what you want —
+# an empty/comment-only file means the step is skipped.
+#
+# node@lts
+# python@3.12
+# go@latest
+# rust@stable
+# java@21
