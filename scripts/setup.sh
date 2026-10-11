@@ -60,7 +60,7 @@ printf '\n    Password: %s\n\n' "$PW"
 
 say "Done. Next:"
 echo "    bash scripts/start.sh"
-if [ -d /data/data/com.termux ]; then
+if [ "$(uname -o 2>/dev/null)" = "Android" ]; then
   echo "    then open http://localhost:${PORT} in your phone's browser"
   warn "Termux/Android: code-server's generic build is not its supported Termux"
   warn "install, and server-side extensions are refused on Android. See docs/termux.md"

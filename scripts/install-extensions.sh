@@ -15,7 +15,9 @@ LIST="${CLOUDIDE_EXTENSIONS:-$ROOT/config/extensions.txt}"
 # On Termux/Android, code-server reports process.platform === "android" and
 # refuses to install server-side extensions. Preloading a tiny shim that makes
 # it report "linux" lets them install (see docs/termux.md).
-if [ -d /data/data/com.termux ] && [ -f "$ROOT/scripts/android-as-linux.js" ]; then
+# Detect the *real* platform: uname -o is "Android" in Termux, but "GNU/Linux"
+# inside a proot-distro Ubuntu, where no shim is needed.
+if [ "$(uname -o 2>/dev/null)" = "Android" ] && [ -f "$ROOT/scripts/android-as-linux.js" ]; then
   export NODE_OPTIONS="--require $ROOT/scripts/android-as-linux.js ${NODE_OPTIONS:-}"
   echo "install-extensions: Termux detected - loading android-as-linux shim"
 fi

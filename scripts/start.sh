@@ -24,7 +24,7 @@ else
   echo "Log: $LOG"
 fi
 
-if [ -d /data/data/com.termux ]; then
+if [ "$(uname -o 2>/dev/null)" = "Android" ]; then
   echo
   echo "Open it: http://localhost:${PORT} in your phone's browser"
   echo "  (extensions need a workaround on Termux - see docs/termux.md)"
